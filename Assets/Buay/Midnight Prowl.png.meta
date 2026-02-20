@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8335b16175b9eeb4b9ccc90f85450d89
+guid: 315117f083426144a860ab38be90abde
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3272501538999977076
-    second: home2_0
+      213: 8131378331327699910
+    second: Midnight Prowl_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: home2_0
+      name: Midnight Prowl_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 61
-        width: 195
-        height: 183
+        x: 3
+        y: 0
+        width: 1523
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 474430fafc24a6d20800000000000000
-      internalID: 3272501538999977076
+      spriteID: 6cb981da28578d070800000000000000
+      internalID: 8131378331327699910
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      home2_0: 3272501538999977076
+      Midnight Prowl_0: 8131378331327699910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

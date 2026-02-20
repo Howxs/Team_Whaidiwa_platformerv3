@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +11,10 @@ class PlayerHealth : MonoBehaviour
     public HealthUI healthUI;
     
     private SpriteRenderer spriteRenderer;
+
+    public static event Action OnplayedDied;
+
+    public GameObject GameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +50,7 @@ class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             //player dead! -- call game over, animation, etc
+            GameOverScreen();
         }
     }
     private IEnumerator FlashRed()
@@ -51,5 +58,25 @@ class PlayerHealth : MonoBehaviour
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = Color.white;
+    }
+    void GameOverScreen()
+    {
+        GameOver.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void RestartGame()
+    {
+        // *สำคัญที่สุด* ต้องคืนค่าเวลาเป็น 1 ก่อนโหลดฉากใหม่
+        Time.timeScale = 1f;
+
+        // โหลด Scene ปัจจุบันใหม่ (รีเซ็ตเกม)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // ฟังก์ชันสำหรับปุ่ม Menu (กลับหน้า Title)
+    public void BackToTitle()
+    {
+        Time.timeScale = 1f; // *สำคัญ* คืนค่าเวลา
+        SceneManager.LoadScene("TitleScreen"); // ใส่ชื่อ Scene หน้า Title ของคุณ
     }
 }

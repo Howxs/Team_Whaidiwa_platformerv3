@@ -20,12 +20,14 @@ public class Enemy : MonoBehaviour
     private bool isFacingRight = true;
 
     public int damage = 1;
-
+    Renderer rend;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
     }
 
     void Update()
@@ -134,6 +136,14 @@ public class Enemy : MonoBehaviour
             // เปลี่ยน sprite
             if (deadSprite != null)
                 sr.sprite = deadSprite;
+
+            AudioSource audio = GetComponent<AudioSource>();
+
+            // เล่นเสียงที่ตำแหน่งของไอเทม (เสียงจะเล่นจนจบแม้ไอเทมจะถูก Destroy)
+            if (audio != null && audio.clip != null)
+            {
+                AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+            }
 
             // ทำลายหลังหน่วงเวลา
             Destroy(gameObject, destroyDelay);
